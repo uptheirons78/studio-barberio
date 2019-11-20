@@ -6,16 +6,20 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: content/blog
+  - name: "articolo"
+    label: "Articolo"
+    folder: "content/articoli"
     create: true
+    identifier_field: "titolo"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
-      - { name: body, label: Body, widget: markdown }
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "articoli"}
+      - { name: "titolo", label: "Titolo" }
+      - { name: "data", label: "Data Articolo", widget: "date" }
+      - { name: "descrizione", label: "Descrizione" }
+      - { name: "link", label: "Link Articolo", widget: "string", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
   - name: "sentenza"
     label: "Sentenze"
     folder: "content/sentenze"

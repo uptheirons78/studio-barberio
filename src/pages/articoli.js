@@ -3,15 +3,15 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const Blog = ({ data }) => {
+const Articoli = ({ data }) => {
   const posts = data.allMdx.edges;
 
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO title="Rassegna Stampa Studio Legale Barberio" />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
+          const title = node.frontmatter.titolo || node.fields.slug;
           return (
             <div style={{ marginBottom: "3rem" }} key={node.fields.slug}>
               <h3
@@ -26,10 +26,10 @@ const Blog = ({ data }) => {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>{node.frontmatter.data}</small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.frontmatter.descrizione || node.excerpt,
                 }}
               />
             </div>
@@ -41,7 +41,7 @@ const Blog = ({ data }) => {
   );
 };
 
-export default Blog;
+export default Articoli;
 
 export const pageQuery = graphql`
   query {
@@ -51,8 +51,8 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/articoli/" } }
+      sort: { fields: [frontmatter___data], order: DESC }
     ) {
       edges {
         node {
@@ -61,9 +61,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+            data(formatString: "DD MMM YYYY", locale: "it")
+            titolo
+            descrizione
           }
         }
       }

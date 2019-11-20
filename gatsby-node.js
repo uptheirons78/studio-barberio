@@ -4,15 +4,15 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const articoloPost = path.resolve(`./src/templates/articolo-post.js`);
   const sentenzaPost = path.resolve(`./src/templates/sentenza-post.js`);
 
-  const blogResult = await graphql(
+  const articoliResult = await graphql(
     `
       {
         allMdx(
-          filter: { fileAbsolutePath: { regex: "/blog/" } }
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/articoli/" } }
+          sort: { fields: [frontmatter___data], order: DESC }
           limit: 1000
         ) {
           edges {
@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                title
+                titolo
               }
             }
           }
@@ -30,8 +30,8 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
-  if (blogResult.errors) {
-    throw blogResult.errors;
+  if (articoliResult.errors) {
+    throw articoliResult.errors;
   }
 
   const sentenzeResult = await graphql(
@@ -62,15 +62,15 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = blogResult.data.allMdx.edges;
+  const articoli = articoliResult.data.allMdx.edges;
   const sentenze = sentenzeResult.data.allMdx.edges;
 
-  posts.forEach(post => {
+  articoli.forEach(articolo => {
     createPage({
-      path: `blog${post.node.fields.slug}`,
-      component: blogPost,
+      path: `articoli${articolo.node.fields.slug}`,
+      component: articoloPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: articolo.node.fields.slug,
       },
     });
   });
