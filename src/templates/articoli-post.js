@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import SentenzaContent from "../components/SentenzaContent";
+import ArticoloContent from "../components/ArticoloContent";
 
-const SentenzaTemplate = ({ data }) => {
+const ArticoloTemplate = ({ data }) => {
   const post = data.mdx;
 
   return (
@@ -16,13 +16,13 @@ const SentenzaTemplate = ({ data }) => {
         description={post.frontmatter.descrizione || post.excerpt}
       />
       <Container>
-        <SentenzaContent post={post} />
+        <ArticoloContent post={post} />
       </Container>
     </Layout>
   );
 };
 
-export default SentenzaTemplate;
+export default ArticoloTemplate;
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth};
@@ -31,7 +31,7 @@ const Container = styled.div`
 `;
 
 export const pageQuery = graphql`
-  query SentenzeBySlug($slug: String!) {
+  query ArticoliBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
         titolo
         data(formatString: "DD MMM YYYY", locale: "it")
         descrizione
-        sentenza
+        link
       }
     }
   }

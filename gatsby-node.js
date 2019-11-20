@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
   const sentenzaPost = path.resolve(`./src/templates/sentenza-post.js`);
+  const articoloPost = path.resolve(`./src/templates/articoli-post.js`);
 
   const blogResult = await graphql(
     `
@@ -61,9 +62,37 @@ exports.createPages = async ({ graphql, actions }) => {
     throw sentenzeResult.errors;
   }
 
+  const articoliResult = await graphql(
+    `
+      {
+        allMdx(
+          filter: { fileAbsolutePath: { regex: "/articoli/" } }
+          sort: { fields: [frontmatter___data], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                titolo
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  if (articoliResult.errors) {
+    throw articoliResult.errors;
+  }
+
   // Create blog posts pages.
   const posts = blogResult.data.allMdx.edges;
   const sentenze = sentenzeResult.data.allMdx.edges;
+  const articoli = articoliResult.data.allMdx.edges;
 
   posts.forEach(post => {
     createPage({
@@ -81,6 +110,16 @@ exports.createPages = async ({ graphql, actions }) => {
       component: sentenzaPost,
       context: {
         slug: sentenza.node.fields.slug,
+      },
+    });
+  });
+
+  articoli.forEach(articolo => {
+    createPage({
+      path: `articoli${articolo.node.fields.slug}`,
+      component: articoloPost,
+      context: {
+        slug: articolo.node.fields.slug,
       },
     });
   });
