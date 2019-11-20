@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  const eventPost = path.resolve(`./src/templates/event-post.js`);
+  const sentenzaPost = path.resolve(`./src/templates/sentenza-post.js`);
 
   const blogResult = await graphql(
     `
@@ -34,12 +34,12 @@ exports.createPages = async ({ graphql, actions }) => {
     throw blogResult.errors;
   }
 
-  const eventsResult = await graphql(
+  const sentenzeResult = await graphql(
     `
       {
         allMdx(
-          filter: { fileAbsolutePath: { regex: "/events/" } }
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/sentenze/" } }
+          sort: { fields: [frontmatter___data], order: DESC }
           limit: 1000
         ) {
           edges {
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                title
+                titolo
               }
             }
           }
@@ -57,13 +57,13 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
-  if (eventsResult.errors) {
-    throw eventsResult.errors;
+  if (sentenzeResult.errors) {
+    throw sentenzeResult.errors;
   }
 
   // Create blog posts pages.
   const posts = blogResult.data.allMdx.edges;
-  const events = eventsResult.data.allMdx.edges;
+  const sentenze = sentenzeResult.data.allMdx.edges;
 
   posts.forEach(post => {
     createPage({
@@ -75,12 +75,12 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  events.forEach(event => {
+  sentenze.forEach(sentenza => {
     createPage({
-      path: `events${event.node.fields.slug}`,
-      component: eventPost,
+      path: `sentenze${sentenza.node.fields.slug}`,
+      component: sentenzaPost,
       context: {
-        slug: event.node.fields.slug,
+        slug: sentenza.node.fields.slug,
       },
     });
   });

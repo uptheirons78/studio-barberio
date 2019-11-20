@@ -4,15 +4,15 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const Events = ({ data }) => {
-  const posts = data.allMdx.edges;
+const Sentenze = ({ data }) => {
+  const sentenze = data.allMdx.edges;
 
   return (
     <Layout>
-      <SEO title="List of all the events" />
+      <SEO title="Decisioni rilevanti Studio Legale Barberio" />
       <div style={{ margin: "20px 0 40px" }}>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
+        {sentenze.map(({ node }) => {
+          const titolo = node.frontmatter.titolo || node.fields.slug;
           return (
             <div style={{ marginBottom: "3rem" }} key={node.fields.slug}>
               <h3
@@ -22,15 +22,15 @@ const Events = ({ data }) => {
               >
                 <Link
                   style={{ boxShadow: `none` }}
-                  to={`events${node.fields.slug}`}
+                  to={`sentenze${node.fields.slug}`}
                 >
-                  {title}
+                  {titolo}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>{node.frontmatter.data}</small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.frontmatter.descrizione || node.excerpt,
                 }}
               />
             </div>
@@ -42,7 +42,7 @@ const Events = ({ data }) => {
   );
 };
 
-export default Events;
+export default Sentenze;
 
 export const pageQuery = graphql`
   query {
@@ -52,8 +52,8 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/events/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/sentenze/" } }
+      sort: { fields: [frontmatter___data], order: DESC }
     ) {
       edges {
         node {
@@ -62,9 +62,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+            data(formatString: "DD MMM YYYY", locale: "it")
+            titolo
+            descrizione
           }
         }
       }

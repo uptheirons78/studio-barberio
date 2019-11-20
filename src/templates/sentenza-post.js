@@ -4,25 +4,25 @@ import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PostContent from "../components/PostContent";
+import SentenzaContent from "../components/SentenzaContent";
 
-const EventTemplate = ({ data }) => {
+const SentenzaTemplate = ({ data }) => {
   const post = data.mdx;
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={post.frontmatter.titolo}
+        description={post.frontmatter.descrizione || post.excerpt}
       />
       <Container>
-        <PostContent post={post} />
+        <SentenzaContent post={post} />
       </Container>
     </Layout>
   );
 };
 
-export default EventTemplate;
+export default SentenzaTemplate;
 
 const Container = styled.div`
   max-width: ${props => props.theme.maxWidth};
@@ -43,9 +43,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       body
       frontmatter {
-        title
-        date(formatString: "DD MMM YYYY", locale: "it")
-        description
+        titolo
+        data(formatString: "DD MMM YYYY", locale: "it")
+        descrizione
       }
     }
   }

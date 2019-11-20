@@ -16,13 +16,15 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
-  - name: event
-    label: Events
-    folder: content/events
+  - name: sentenza
+    label: Sentenze
+    folder: content/sentenze
     create: true
+    identifier_field: titolo
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
+      - { name: data, label: Data, widget: date }
+      - { name: titolo, label: Titolo }
+      - { name: descrizione, label: Descrizione }
+      - { name: sentenza, label: Sentenza, widget: image }
       - { name: body, label: Body, widget: markdown }
