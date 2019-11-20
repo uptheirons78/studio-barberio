@@ -60,6 +60,10 @@ const StyledArticle = styled.article`
     text-transform: uppercase;
     text-align: justify;
     margin-top: 2rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 2.4rem;
+    }
   }
 
   .description {
@@ -79,8 +83,15 @@ const StyledArticle = styled.article`
   }
 
   hr {
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    color: ${props => props.theme.lightBlack};
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
   }
 `;

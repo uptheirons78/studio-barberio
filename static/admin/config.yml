@@ -16,15 +16,15 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
-  - name: sentenza
-    label: Sentenze
-    folder: content/sentenze
+  - name: "sentenza"
+    label: "Sentenze"
+    folder: "content/sentenze"
     create: true
-    identifier_field: titolo
+    identifier_field: "titolo"
     fields:
-      - { name: path, label: Path }
-      - { name: data, label: Data, widget: date }
-      - { name: titolo, label: Titolo }
-      - { name: descrizione, label: Descrizione }
-      - { name: sentenza, label: Sentenza, widget: image }
-      - { name: body, label: Body, widget: markdown }
+      - { name: "path", label: "Path" }
+      - { name: "data", label: "Data Articolo", widget: "date" }
+      - { name: "titolo", label: "Titolo" }
+      - { name: "descrizione", label: "Descrizione" }
+      - { name: "sentenza", label: "PDF Sentenza", widget: "file", description: "Aggiungere il PDF della sentenza/decisione" }
+      - { name: "body", label: "Body", widget: "markdown" }
