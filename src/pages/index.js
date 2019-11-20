@@ -16,8 +16,8 @@ const IndexPage = () => {
         Global Styles, CSS Reset and Theme Provider are already there for you!{" "}
       </p>
       <ul style={{ marginTop: "5rem" }}>
-        <Link style={{ marginRight: "2rem" }} to="/blog/">
-          Blog
+        <Link style={{ marginRight: "2rem" }} to="/articoli/">
+          Articoli
         </Link>
         <Link style={{ marginRight: "2rem" }} to="/sentenze/">
           Sentenze

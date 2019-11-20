@@ -21,7 +21,7 @@ const Articoli = ({ data }) => {
               >
                 <Link
                   style={{ boxShadow: `none` }}
-                  to={`blog${node.fields.slug}`}
+                  to={`articoli${node.fields.slug}`}
                 >
                   {title}
                 </Link>
