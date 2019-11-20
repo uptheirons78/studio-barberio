@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Studio Legale Barberio`,
-    author: `Mauro Bono`,
+    author: `Laura Barberio`,
     description: `Ufficio Legale a Roma con Esperienza e Specializzazione nel Diritto dell'Immigrazione, nel diritto di Famiglia, Asilo Politico e Protezione Internazionale.`,
     siteUrl: `https://studiobarberio.netlify.com/`,
     social: {
       twitter: `UpTheIrons1978`,
+      facebook: `https://www.facebook.com/studiobarberio.org/`,
     },
   },
   plugins: [

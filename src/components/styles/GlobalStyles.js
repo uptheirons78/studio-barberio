@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     &:not(:nth-child(1)) {
     margin-top: 1.5rem;
     }
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.lightBlack};
   }
   ul {
     list-style-type: none;

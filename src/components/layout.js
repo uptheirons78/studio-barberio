@@ -2,16 +2,17 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyles";
+// import { AppContext } from "../context";
 
 // Our Theme with Styled Components
 const theme = {
   primaryColor: "#701212",
   black: "#393939",
-  lightBlack: "#5a5a5a",
+  lightBlack: "#5D6769",
   grey: "#f7f7f7",
   meta: "#a7a7a7",
   white: "#edf0f1",
-  maxWidth: "1400px",
+  maxWidth: "900px",
 };
 
 const Layout = props => {
@@ -25,7 +26,9 @@ const Layout = props => {
     }
   `);
 
-  console.log(props);
+  // Use React Context Api
+  // const { isSidebarOpen, handleSidebar } = React.useContext(AppContext);
+  // const open = isSidebarOpen ? "OPEN" : "CLOSE";
 
   return (
     <ThemeProvider theme={theme}>
@@ -47,6 +50,7 @@ const Wrapper = styled.div`
 const StyledTitle = styled.h1`
   color: ${props => props.theme.primaryColor};
   text-transform: uppercase;
+  font-size: 2rem;
 `;
 
 export default Layout;

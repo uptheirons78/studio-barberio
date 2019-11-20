@@ -1,9 +1,10 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { graphql } from "gatsby";
+import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import PostContent from "../components/PostContent";
 
 const EventTemplate = ({ data }) => {
   const post = data.mdx;
@@ -14,28 +15,20 @@ const EventTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          display: `block`,
-          marginBottom: "1rem",
-          marginTop: "1rem",
-        }}
-      >
-        {post.frontmatter.date}
-      </p>
-      <MDXRenderer>{post.body}</MDXRenderer>
-      <hr
-        style={{
-          marginBottom: "1rem",
-        }}
-      />
-      <Link to="/">Home</Link>
+      <Container>
+        <PostContent post={post} />
+      </Container>
     </Layout>
   );
 };
 
 export default EventTemplate;
+
+const Container = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  width: 100%;
+  margin: 0 auto;
+`;
 
 export const pageQuery = graphql`
   query EventsBySlug($slug: String!) {
@@ -51,7 +44,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMM YYYY", locale: "it")
         description
       }
     }
