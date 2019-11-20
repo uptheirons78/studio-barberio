@@ -26,5 +26,5 @@ collections:
       - { name: "data", label: "Data Articolo", widget: "date" }
       - { name: "titolo", label: "Titolo" }
       - { name: "descrizione", label: "Descrizione" }
-      - { name: "sentenza", label: "PDF Sentenza", widget: "file", description: "Aggiungere il PDF della sentenza/decisione" }
+      - { name: "sentenza", label: "PDF Sentenza", widget: "file", required: false }
       - { name: "body", label: "Body", widget: "markdown" }
