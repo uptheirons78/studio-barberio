@@ -50,10 +50,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(
-      filter: { fileAbsolutePath: { regex: "/articoli/" } }
-      sort: { fields: [frontmatter___data], order: DESC }
-    ) {
+    allMdx(filter: { fileAbsolutePath: { regex: "/articoli/" } }) {
       edges {
         node {
           excerpt

@@ -1,6 +1,7 @@
 ---
+path: articolo-di-prova
 data: 2019-11-19T10:47:53.401Z
-titolo: articolo-di-prova
+titolo: Articolo di prova
 descrizione: >-
   Riconosciuta la protezione internazionale alla donna che ha lasciato il suo
   Paese (nella specie la Nigeria) per evitare un matrimonio forzato e combinato
