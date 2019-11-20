@@ -5,16 +5,16 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const ArticoloPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.mdx;
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.titolo}
-        description={post.frontmatter.descrizione || post.excerpt}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
       />
-      <h1>{post.frontmatter.titolo}</h1>
+      <h1>{post.frontmatter.title}</h1>
       <p
         style={{
           display: `block`,
@@ -22,7 +22,7 @@ const ArticoloPostTemplate = ({ data }) => {
           marginTop: "1rem",
         }}
       >
-        {post.frontmatter.data}
+        {post.frontmatter.date}
       </p>
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr
@@ -35,10 +35,10 @@ const ArticoloPostTemplate = ({ data }) => {
   );
 };
 
-export default ArticoloPostTemplate;
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query ArticoloPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -50,9 +50,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       body
       frontmatter {
-        titolo
-        data(formatString: "DD MMM YYYY", locale: "it")
-        descrizione
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
       }
     }
   }

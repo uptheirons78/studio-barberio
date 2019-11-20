@@ -51,7 +51,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(filter: { fileAbsolutePath: { regex: "/sentenze/" } }) {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/sentenze/" } }
+      sort: { fields: [frontmatter___data], order: DESC }
+    ) {
       edges {
         node {
           excerpt

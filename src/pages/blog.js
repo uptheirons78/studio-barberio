@@ -3,15 +3,15 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const Articoli = ({ data }) => {
+const Blog = ({ data }) => {
   const posts = data.allMdx.edges;
 
   return (
     <Layout>
-      <SEO title="Rassegna Stampa Studio Legale Barberio" />
+      <SEO title="All posts" />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.titolo || node.fields.slug;
+          const title = node.frontmatter.title || node.fields.slug;
           return (
             <div style={{ marginBottom: "3rem" }} key={node.fields.slug}>
               <h3
@@ -21,15 +21,15 @@ const Articoli = ({ data }) => {
               >
                 <Link
                   style={{ boxShadow: `none` }}
-                  to={`articoli${node.fields.slug}`}
+                  to={`blog${node.fields.slug}`}
                 >
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.data}</small>
+              <small>{node.frontmatter.date}</small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.descrizione || node.excerpt,
+                  __html: node.frontmatter.description || node.excerpt,
                 }}
               />
             </div>
@@ -41,7 +41,7 @@ const Articoli = ({ data }) => {
   );
 };
 
-export default Articoli;
+export default Blog;
 
 export const pageQuery = graphql`
   query {
@@ -50,7 +50,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(filter: { fileAbsolutePath: { regex: "/articoli/" } }) {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -58,9 +61,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            data(formatString: "DD MMM YYYY", locale: "it")
-            titolo
-            descrizione
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
           }
         }
       }

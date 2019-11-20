@@ -4,20 +4,24 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const articoloPost = path.resolve(`./src/templates/articolo-post.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
   const sentenzaPost = path.resolve(`./src/templates/sentenza-post.js`);
 
-  const articoliResult = await graphql(
+  const blogResult = await graphql(
     `
       {
-        allMdx(filter: { fileAbsolutePath: { regex: "/articoli/" } }) {
+        allMdx(
+          filter: { fileAbsolutePath: { regex: "/blog/" } }
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
           edges {
             node {
               fields {
                 slug
               }
               frontmatter {
-                titolo
+                title
               }
             }
           }
@@ -26,14 +30,18 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
-  if (articoliResult.errors) {
-    throw articoliResult.errors;
+  if (blogResult.errors) {
+    throw blogResult.errors;
   }
 
   const sentenzeResult = await graphql(
     `
       {
-        allMdx(filter: { fileAbsolutePath: { regex: "/sentenze/" } }) {
+        allMdx(
+          filter: { fileAbsolutePath: { regex: "/sentenze/" } }
+          sort: { fields: [frontmatter___data], order: DESC }
+          limit: 1000
+        ) {
           edges {
             node {
               fields {
@@ -54,15 +62,15 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const articoli = articoliResult.data.allMdx.edges;
+  const posts = blogResult.data.allMdx.edges;
   const sentenze = sentenzeResult.data.allMdx.edges;
 
-  articoli.forEach(articolo => {
+  posts.forEach(post => {
     createPage({
-      path: `articoli${articolo.node.fields.slug}`,
-      component: articoloPost,
+      path: `blog${post.node.fields.slug}`,
+      component: blogPost,
       context: {
-        slug: articolo.node.fields.slug,
+        slug: post.node.fields.slug,
       },
     });
   });
