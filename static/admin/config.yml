@@ -28,3 +28,15 @@ collections:
       - { name: "descrizione", label: "Descrizione" }
       - { name: "sentenza", label: "PDF Sentenza", widget: "file", required: false }
       - { name: "body", label: "Body", widget: "markdown" }
+  - name: "articolo"
+    label: "Articoli"
+    folder: "content/articoli"
+    create: true
+    identifier_field: "titolo"
+    fields:
+      - { name: "path", label: "Path" }
+      - { name: "data", label: "Data Articolo", widget: "date" }
+      - { name: "titolo", label: "Titolo" }
+      - { name: "descrizione", label: "Descrizione" }
+      - { name: "link", label: "Indirizzo Articolo", widget: "string", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }

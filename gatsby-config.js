@@ -39,7 +39,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/sentenze`,
-        name: `events`,
+        name: `sentenze`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/articoli`,
+        name: `articoli`,
       },
     },
     {
