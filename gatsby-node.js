@@ -10,11 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const articoliResult = await graphql(
     `
       {
-        allMdx(
-          filter: { fileAbsolutePath: { regex: "/articoli/" } }
-          sort: { fields: [frontmatter___data], order: DESC }
-          limit: 1000
-        ) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/articoli/" } }) {
           edges {
             node {
               fields {
@@ -37,11 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const sentenzeResult = await graphql(
     `
       {
-        allMdx(
-          filter: { fileAbsolutePath: { regex: "/sentenze/" } }
-          sort: { fields: [frontmatter___data], order: DESC }
-          limit: 1000
-        ) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/sentenze/" } }) {
           edges {
             node {
               fields {
