@@ -18,6 +18,16 @@ export default function SentenzaContent({ post }) {
         Pubblicato il: <span>{post.frontmatter.data}</span>
       </p>
       <MDXRenderer>{post.body}</MDXRenderer>
+      {post.frontmatter.sentenza && (
+        <a
+          href={post.frontmatter.sentenza}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="read-more"
+        >
+          Leggi la sentenza
+        </a>
+      )}
       <hr />
       <Bio />
     </StyledArticle>
@@ -93,5 +103,14 @@ const StyledArticle = styled.article`
       rgba(0, 0, 0, 0.75),
       rgba(0, 0, 0, 0)
     );
+  }
+
+  .read-more {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    background: ${props => props.theme.primaryColor};
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
   }
 `;

@@ -46,6 +46,7 @@ export const pageQuery = graphql`
         titolo
         data(formatString: "DD MMM YYYY", locale: "it")
         descrizione
+        sentenza
       }
     }
   }
