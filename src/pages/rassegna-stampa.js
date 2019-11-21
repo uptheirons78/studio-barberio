@@ -1,7 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import PageDescription from "../components/PageDescription";
+import ArticoloCard from "../components/ArticoloCard";
+import PageContainer from "../components/PageContainer";
+import ArticleContainer from "../components/ArticleContainer";
 
 const ArticoliPage = ({ data }) => {
   const articoli = data.allMdx.edges;
@@ -17,29 +22,35 @@ const ArticoliPage = ({ data }) => {
           `protezione internazionale`,
         ]}
       />
-      <p>RASSEGNA STAMPA</p>
-      <div>
-        {articoli.map(({ node }) => (
-          <article key={node.fields.slug}>
-            <h2>{node.frontmatter.titolo}</h2>
-            <small>{node.frontmatter.data}</small>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: node.frontmatter.descrizione || node.excerpt,
-              }}
-            />
-          </article>
-        ))}
-      </div>
-      <hr style={{ marginTop: "5rem" }} />
-      <ul style={{ marginTop: "5rem" }}>
-        <Link style={{ marginRight: "2rem" }} to="/">
-          Home
-        </Link>
-        <Link style={{ marginRight: "2rem" }} to="/sentenze/">
-          Sentenze
-        </Link>
-      </ul>
+      <PageContainer>
+        <PageDescription>
+          <p>
+            Di seguito una raccolta di articoli tratti da quotidiani nazionali,
+            siti e blogs italiani che si occupano di diritto dell’immigrazione,
+            della concessione dello status di rifugiato, della protezione
+            internazionale e di ogni altro aspetto dell’immigrazione.
+          </p>
+          <p>
+            Gli articoli trattano del lavoro svolto dall’Avvocato Laura Barberio
+            e dallo Studio Legale Barberio, nelle persone dei suoi
+            collaboratori, in materia del diritto dell’immigrazione e della
+            protezione internazionale.
+          </p>
+        </PageDescription>
+        <ArticleContainer>
+          {articoli.map(({ node }) => (
+            <ArticoloCard node={node} key={node.fields.slug} />
+          ))}
+        </ArticleContainer>
+        <ul style={{ marginTop: "5rem" }}>
+          <Link style={{ marginRight: "2rem" }} to="/">
+            Home
+          </Link>
+          <Link style={{ marginRight: "2rem" }} to="/sentenze/">
+            Sentenze
+          </Link>
+        </ul>
+      </PageContainer>
     </Layout>
   );
 };

@@ -13,6 +13,10 @@ const theme = {
   meta: "#a7a7a7",
   white: "#edf0f1",
   maxWidth: "900px",
+  bsl:
+    "0px 70px 40px -50px rgba(0, 0, 0, 0.4), 0px 3px 20px 8px rgba(0, 0, 0, 0.2)",
+  bsh:
+    "0px 70px 40px -50px rgba(0, 0, 0, 0.6), 0px 3px 20px 8px rgba(0, 0, 0, 0.3)",
 };
 
 const Layout = props => {

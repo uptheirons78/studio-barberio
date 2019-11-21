@@ -1,6 +1,5 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-// import lauraImg from "../../content/assets/laura.jpg";
 import styled from "styled-components";
 import Image from "gatsby-image";
 

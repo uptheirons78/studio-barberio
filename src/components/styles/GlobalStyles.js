@@ -42,6 +42,10 @@ const GlobalStyle = createGlobalStyle`
     }
     color: ${props => props.theme.lightBlack};
   }
+
+  small {
+    color: ${props => props.theme.lightBlack};
+  }
   ul {
     list-style-type: none;
   }
