@@ -12,17 +12,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`, `800`],
-          },
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,

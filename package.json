@@ -16,7 +16,6 @@
     "gatsby-plugin-mdx": "^1.0.57",
     "gatsby-plugin-netlify-cms": "^4.0.0",
     "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.3.2",
     "gatsby-plugin-styled-components": "^3.0.7",
@@ -34,7 +33,9 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.8.0",
     "react-switch": "^5.0.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "typeface-fira-sans": "0.0.75",
+    "typeface-poppins": "0.0.72"
   },
   "devDependencies": {
     "prettier": "^1.17.0"

@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyles";
+import MobileMenu from "./MobileMenu";
 // import { AppContext } from "../context";
 
 // Our Theme with Styled Components
@@ -43,12 +44,14 @@ const Layout = props => {
         </header>
         <main>{props.children}</main>
       </Wrapper>
+      <MobileMenu />
     </ThemeProvider>
   );
 };
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  position: relative;
 `;
 
 const StyledTitle = styled.h1`

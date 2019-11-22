@@ -11,17 +11,18 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
   }
   body {
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.6rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.8rem;
     line-height: 1.5;
     font-weight: 400;
     letter-spacing: 1px;
     @media (max-width: 520px) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     }
   }
   h1,h2,h3,h4,h5,h6 {
-    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
     letter-spacing: 1px;
   }
   h1 {
