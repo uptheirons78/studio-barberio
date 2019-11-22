@@ -1,13 +1,14 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyles";
 import MobileMenu from "./MobileMenu";
-// import { AppContext } from "../context";
+import Header from "./Header";
+import { AppContext } from "../context";
 
 // Our Theme with Styled Components
 const theme = {
   primaryColor: "#701212",
+  secondaryColor: "#FAA916",
   black: "#393939",
   lightBlack: "#5D6769",
   grey: "#f7f7f7",
@@ -21,30 +22,18 @@ const theme = {
 };
 
 const Layout = props => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   // Use React Context Api
-  // const { isSidebarOpen, handleSidebar } = React.useContext(AppContext);
-  // const open = isSidebarOpen ? "OPEN" : "CLOSE";
+  const { isSidebarOpen } = React.useContext(AppContext);
+  const menu = isSidebarOpen ? "mobile-menu open" : "mobile-menu";
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Wrapper>
-        <header>
-          <StyledTitle>{data.site.siteMetadata.title}</StyledTitle>
-        </header>
+        <Header />
         <main>{props.children}</main>
       </Wrapper>
-      <MobileMenu />
+      <MobileMenu menu={menu} />
     </ThemeProvider>
   );
 };
@@ -52,12 +41,6 @@ const Layout = props => {
 const Wrapper = styled.div`
   min-height: 100vh;
   position: relative;
-`;
-
-const StyledTitle = styled.h1`
-  color: ${props => props.theme.primaryColor};
-  text-transform: uppercase;
-  font-size: 2rem;
 `;
 
 export default Layout;

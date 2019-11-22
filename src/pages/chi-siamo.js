@@ -4,12 +4,14 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { sitePages } from "../utils/pages";
 
-const IndexPage = () => {
-  console.log(sitePages);
+const ChiSiamoPage = () => {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      <p>Welcome to your new Gatsby website. You are on your home page.</p>
+      <SEO
+        title="Chi Siamo"
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      />
+      <p>Welcome to your new Gatsby website. You are on your Chi Siamo page.</p>
       <p>
         This starter comes out of the box with styled components and Gatsby's
         default starter blog running on Netlify CMS.
@@ -28,4 +30,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default ChiSiamoPage;
