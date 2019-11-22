@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { AppContext } from "../context";
-
+import Hamburger from "./Hamburger";
 import Logo from "../../content/assets/logo-studio-barberio.png";
 import { sitePages } from "../utils/pages";
 
@@ -15,8 +15,8 @@ const NavItem = ({ page }) => (
 );
 
 const Header = () => {
-  const { isSidebarOpen, handleSidebar } = React.useContext(AppContext);
-  const open = isSidebarOpen ? "hamburger active" : "hamburger";
+  const { isSidebarOpen } = React.useContext(AppContext);
+  const sidebarClass = isSidebarOpen ? "hamburger active" : "hamburger";
 
   return (
     <StyledHeader>
@@ -24,11 +24,7 @@ const Header = () => {
         <Link to="/" className="logo">
           <img src={Logo} alt="Studio Legale Barberio" />
         </Link>
-        <div className={open} onClick={handleSidebar}>
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-        </div>
+        <Hamburger hamburgerStyle={sidebarClass} />
         <nav>
           <ul className="nav-links">
             {sitePages.map(page => (
@@ -44,10 +40,12 @@ export default Header;
 
 const StyledHeader = styled.header`
   background: #202020;
+  min-height: 8vh;
 
   .navigation {
     max-width: 1200px;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -67,11 +65,13 @@ const StyledHeader = styled.header`
     }
   }
   nav {
+    height: 100%;
     @media (max-width: 900px) {
       margin-top: 1rem;
       display: none;
     }
     .nav-links {
+      height: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -110,62 +110,6 @@ const StyledHeader = styled.header`
       img {
         width: 24px;
         height: 16px;
-      }
-    }
-  }
-
-  .hamburger {
-    display: none;
-    width: 3.6rem;
-    height: 1.8rem;
-    position: relative;
-    right: 10px;
-    cursor: pointer;
-    line-height: 5;
-
-    @media screen and (max-width: 900px) {
-      display: block;
-    }
-
-    .line {
-      width: 100%;
-      height: 2px;
-      background-color: rgba(255, 255, 255, 0.8);
-      position: absolute;
-      display: block;
-      right: 0;
-      transition: all 650ms;
-      &:nth-child(1) {
-        top: 0;
-      }
-      &:nth-child(2) {
-        top: 50%;
-        margin-top: -1px;
-        width: 2.8rem;
-      }
-      &:nth-child(3) {
-        top: 100%;
-        margin-top: -2px;
-        width: 2rem;
-      }
-    }
-
-    &.active {
-      .logo {
-        opacity: 0;
-      }
-      .line {
-        &:nth-child(1) {
-          transform: translateY(0.8rem) rotate(45deg);
-          width: 2rem;
-        }
-        &:nth-child(2) {
-          opacity: 0;
-        }
-        &:nth-child(3) {
-          transform: translateY(-0.8rem) rotate(-45deg);
-          width: 2rem;
-        }
       }
     }
   }
