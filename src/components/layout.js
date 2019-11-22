@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyles";
 import MobileMenu from "./MobileMenu";
 import Header from "./Header";
+import Footer from "./Footer";
 import { AppContext } from "../context";
 
 // Our Theme with Styled Components
@@ -13,7 +14,7 @@ const theme = {
   lightBlack: "#5D6769",
   grey: "#f7f7f7",
   meta: "#a7a7a7",
-  white: "#edf0f1",
+  white: "rgba(255, 255, 255, 0.8)",
   maxWidth: "900px",
   bsl:
     "0px 70px 40px -50px rgba(0, 0, 0, 0.4), 0px 3px 20px 8px rgba(0, 0, 0, 0.2)",
@@ -32,6 +33,7 @@ const Layout = props => {
       <Wrapper>
         <Header />
         <main>{props.children}</main>
+        <Footer />
       </Wrapper>
       <MobileMenu menu={menu} />
     </ThemeProvider>

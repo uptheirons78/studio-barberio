@@ -53,10 +53,7 @@ const HamburgerContainer = styled.div`
     }
   }
 
-  .hamburger.active {
-    .logo {
-      opacity: 0;
-    }
+  &.active {
     .line {
       &:nth-child(1) {
         transform: translateY(0.8rem) rotate(45deg);
