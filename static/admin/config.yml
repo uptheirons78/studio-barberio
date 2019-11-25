@@ -40,3 +40,14 @@ collections:
       - { name: "descrizione", label: "Descrizione" }
       - { name: "link", label: "Indirizzo Articolo", widget: "string", required: false }
       - { name: "body", label: "Body", widget: "markdown" }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/index.md"
+        label: "Home Page"
+        name: "index"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Heading, name: heading, widget: string}
+          - { name: "body", label: "Body", widget: "markdown" }
