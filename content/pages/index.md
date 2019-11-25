@@ -1,5 +1,5 @@
 ---
-path: index-page
+templateKey: index-page
 title: Il Nostro Studio
 heading: Il Nostro Studio
 ---

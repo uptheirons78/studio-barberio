@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 // Components
 import Layout from "../components/layout";
@@ -25,7 +26,7 @@ const IndexPage = ({ data }) => {
       />
       <div className="container">
         <div className="row">
-          <Content />
+          <Content data={data} />
           <Aside />
         </div>
 
@@ -101,3 +102,15 @@ const IndexPage = ({ data }) => {
 };
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query IndexPage {
+    mdx(frontmatter: { templateKey: { eq: "index-page" } }) {
+      frontmatter {
+        title
+        heading
+      }
+      body
+    }
+  }
+`;

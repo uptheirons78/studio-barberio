@@ -1,27 +1,34 @@
 import React from "react";
+import styled from "styled-components";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-const Content = () => {
+const Content = ({ data }) => {
+  console.log(data.mdx);
   return (
-    <div className="col-md-8 mb-5">
-      <h2 className="heading-2">Il nostro studio</h2>
+    <HomeContent className="col-md-8 mb-5">
+      <h2 className="heading-2">{data.mdx.frontmatter.heading}</h2>
       <hr />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt
-        neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque
-        vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo,
-        maiores!
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio
-        neque consectetur consequatur magni in nisi, natus beatae quidem quam
-        odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate.
-        Voluptatum.
-      </p>
+      <MDXRenderer>{data.mdx.body}</MDXRenderer>
       <a className="btn btn-primary btn-lg" href="/">
         Call to Action &raquo;
       </a>
-    </div>
+    </HomeContent>
   );
 };
 
 export default Content;
+
+const HomeContent = styled.div`
+  text-align: justify !important;
+
+  a,
+  strong {
+    color: ${props => props.theme.primaryColor};
+  }
+
+  .btn {
+    color: #fff !important;
+    background-color: ${props => props.theme.primaryColor};
+    border: ${props => props.theme.primaryColor};
+  }
+`;

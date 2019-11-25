@@ -10,11 +10,16 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 900;
     letter-spacing: 1px;
   }
+  p {
+    color: ${props => props.theme.black};
+    font-size: 1.1rem;
+  }
 
   .heading-2 {
     text-transform: uppercase;
     color: ${props => props.theme.black}
   }
+
 `;
 
 export default GlobalStyle;
