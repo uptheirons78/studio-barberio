@@ -24,6 +24,7 @@ const HomeContent = styled.div`
   a,
   strong {
     color: ${props => props.theme.primaryColor};
+    font-weight: 700;
   }
 
   .btn {
