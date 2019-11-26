@@ -8,6 +8,7 @@ import Hero from "../components/Global/Hero";
 import Content from "../components/Home/Content";
 import Aside from "../components/Home/Aside";
 import Background from "../components/Home/Background";
+import Card from "../components/Global/Card";
 
 const IndexPage = ({ data }) => {
   const descrizione =
@@ -30,70 +31,9 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="row">
-          <div className="col-md-4 mb-5">
-            <div className="card h-100">
-              <img
-                className="card-img-top"
-                src="http://placehold.it/300x200"
-                alt=""
-              />
-              <div className="card-body">
-                <h4 className="card-title">Card title</h4>
-                <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Sapiente esse necessitatibus neque sequi doloribus.
-                </p>
-              </div>
-              <div className="card-footer">
-                <a href="/" className="btn btn-primary">
-                  Find Out More!
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-5">
-            <div className="card h-100">
-              <img
-                className="card-img-top"
-                src="http://placehold.it/300x200"
-                alt=""
-              />
-              <div className="card-body">
-                <h4 className="card-title">Card title</h4>
-                <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Sapiente esse necessitatibus neque sequi doloribus totam ut
-                  praesentium aut.
-                </p>
-              </div>
-              <div className="card-footer">
-                <a href="/" className="btn btn-primary">
-                  Find Out More!
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-5">
-            <div className="card h-100">
-              <img
-                className="card-img-top"
-                src="http://placehold.it/300x200"
-                alt=""
-              />
-              <div className="card-body">
-                <h4 className="card-title">Card title</h4>
-                <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Sapiente esse necessitatibus neque.
-                </p>
-              </div>
-              <div className="card-footer">
-                <a href="/" className="btn btn-primary">
-                  Find Out More!
-                </a>
-              </div>
-            </div>
-          </div>
+          {data.allMdx.edges.map(post => (
+            <Card key={post.node.id} post={post.node} />
+          ))}
         </div>
       </div>
     </Layout>
@@ -110,6 +50,26 @@ export const pageQuery = graphql`
         heading
       }
       body
+    }
+    allMdx(
+      limit: 3
+      filter: { fileAbsolutePath: { regex: "/sentenze/" } }
+      sort: { fields: [frontmatter___data], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            data(formatString: "DD MMM YYYY", locale: "it")
+            titolo
+            descrizione
+          }
+        }
+      }
     }
   }
 `;
