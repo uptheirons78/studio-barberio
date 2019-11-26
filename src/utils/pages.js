@@ -24,3 +24,29 @@ export const sitePages = [
     path: "/contatti",
   },
 ];
+
+export const footerPages = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Chi Siamo",
+    path: "/chi-siamo",
+  },
+  {
+    name: "Contatti",
+    path: "/contatti",
+  },
+];
+
+export const legalPages = [
+  {
+    name: "Privacy Policy",
+    path: "/",
+  },
+  {
+    name: "Cookies Policy",
+    path: "/",
+  },
+];

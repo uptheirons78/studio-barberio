@@ -2,14 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 
 // Components
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 import SEO from "../components/seo";
-import Hero from "../components/Hero";
+import Hero from "../components/Global/Hero";
 import Content from "../components/Home/Content";
 import Aside from "../components/Home/Aside";
-
-// Assets and Images
-import bg from "../images/background-home.jpg";
+import Background from "../components/Home/Background";
 
 const IndexPage = ({ data }) => {
   const descrizione =
@@ -18,12 +16,13 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      <Hero
-        bg={bg}
-        titleLeft="Studio Legale"
-        titleRight="Barberio"
-        descrizione={descrizione}
-      />
+      <Background>
+        <Hero
+          titleLeft="Studio Legale"
+          titleRight="Barberio"
+          descrizione={descrizione}
+        />
+      </Background>
       <div className="container">
         <div className="row">
           <Content data={data} />

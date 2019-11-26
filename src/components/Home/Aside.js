@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+
+// Components
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // Assets
 import LibroImage from "./LibroImage";
 import LauraImage from "./LauraImage";
@@ -38,6 +40,11 @@ const Aside = () => {
           <li className="social-link social-link__linkedin">
             <a href="https://it.linkedin.com/in/avv-laura-barberio-99156368">
               <FaLinkedinIn />
+            </a>
+          </li>
+          <li className="social-link social-link__twitter">
+            <a href="https://twitter.com/laurabarberio">
+              <FaTwitter />
             </a>
           </li>
         </ul>
@@ -80,7 +87,7 @@ const Widget = styled.div`
     .social-link {
       margin-right: 0.5rem;
       svg {
-        fill: ${props => props.theme.white};
+        fill: #ffffff;
         width: 3rem;
         height: 3rem;
         padding: 1rem;
@@ -94,6 +101,11 @@ const Widget = styled.div`
     .social-link__linkedin {
       svg {
         background: #127bb6;
+      }
+    }
+    .social-link__twitter {
+      svg {
+        background: #4ab3f4;
       }
     }
   }

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-const Hero = ({ bg, titleLeft, titleRight, descrizione }) => {
+const Hero = ({ titleLeft, titleRight, descrizione }) => {
   return (
-    <HeroHeader className="py-5 mb-5" style={{ backgroundImage: `url(${bg})` }}>
+    <HeroHeader className="py-5 mb-5">
       <div className="bg-overlay">
         <div className="container h-100">
           <div className="row h-100 align-items-center">

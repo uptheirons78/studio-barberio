@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import Logo from "../../content/assets/logo-studio-barberio.png";
-import { sitePages } from "../utils/pages";
+
+// Assets and Utilities
+import Logo from "../../../content/assets/logo-studio-barberio.png";
+import { sitePages } from "../../utils/pages";
 
 // Components
 import { Navbar, Nav, Container } from "react-bootstrap";
