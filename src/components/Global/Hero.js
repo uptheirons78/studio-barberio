@@ -10,7 +10,15 @@ const Hero = ({ titleLeft, titleRight, descrizione }) => {
               <h1 className="text-white mt-5 mb-2 hero-title">
                 {titleLeft} <span>{titleRight}</span>
               </h1>
-              <p className="mb-5">{descrizione}</p>
+              <p
+                className="mb-5 pr-5"
+                style={{
+                  maxWidth: "650px",
+                  width: "100%",
+                }}
+              >
+                {descrizione}
+              </p>
             </div>
           </div>
         </div>
@@ -32,7 +40,7 @@ const HeroHeader = styled.header`
   .bg-overlay {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;

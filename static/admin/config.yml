@@ -51,3 +51,11 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Heading, name: heading, widget: string}
           - { name: "body", label: "Body", widget: "markdown" }
+      - file: "src/pages/chi-siamo/index.md"
+        label: "Chi Siamo"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Titolo", name: "title", widget: "string"}
+          - {label: "Descrizione Attività dello Studio Barberio", name: "body", widget: "markdown"}
+          - {label: "Membri del Team", name: "members", widget: "list", fields: [{label: "Nome", name: "nome", widget: "string"}, {label: "Occupazione", name: "occupazione", widget: "string"}, {label: "Breve Descrizione", name: "breve-descrizione", widget: "string"}, {label: "Email", name: "email", widget: "string"}, {label: "Telefono", name: "telefono", widget: "string"}, {label: "Facebook", name: "facebook", widget: "string"}, {label: "Twitter", name: "twitter", widget: "string"}, {label: "Linkedin", name: "linkedin", widget: "string"}, {label: "Descrizione", name: "descrizione", widget: "markdown"}]}
