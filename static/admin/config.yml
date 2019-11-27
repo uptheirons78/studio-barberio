@@ -51,6 +51,20 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Heading, name: heading, widget: string}
           - { name: "body", label: "Body", widget: "markdown" }
+      - file: "content/pages/laura/index.md"
+        label: "Laura"
+        name: "laura"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "laura-page"}
+          - {label: Title, name: title, widget: string}
+          - { name: "body", label: "Body", widget: "markdown" }
+      - file: "content/pages/sara/index.md"
+        label: "Sara"
+        name: "sara"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sara-page"}
+          - {label: Title, name: title, widget: string}
+          - { name: "body", label: "Body", widget: "markdown" }
       - file: "content/pages/about/index.md"
         label: "Chi Siamo"
         name: "about"
@@ -78,7 +92,6 @@ collections:
                         { label: "Descrizione", name: "descrizione", widget: "string" },
                         { label: "Telefono", name: "telefono", widget: "string" },
                         { label: "Email", name: "email", widget: "string" },
-                        { label: "Descrizione Lunga", name: "descrizione-lunga", widget: "markdown" },
                       ],
                   },
                 ],

@@ -7,8 +7,11 @@ import SEO from "../components/seo";
 import Hero from "../components/Global/Hero";
 import Background from "../components/About/Background";
 import Content from "../components/About/Content";
+import AboutPageAside from "../components/About/Aside";
 
 const ChiSiamoPage = ({ data }) => {
+  const { collaboratori } = data.mdx.frontmatter.members;
+
   const descrizione =
     "Esperti e specializzati nel diritto dell'immigrazione, diritto di asilo, protezione internazionale e nel diritto di famiglia.";
 
@@ -33,6 +36,7 @@ const ChiSiamoPage = ({ data }) => {
       <div className="container">
         <div className="row">
           <Content data={data} />
+          <AboutPageAside collaboratori={collaboratori} />
         </div>
       </div>
     </Layout>
@@ -47,6 +51,17 @@ export const pageQuery = graphql`
       frontmatter {
         title
         heading
+        members {
+          collaboratori {
+            descrizione
+            email
+            image
+            imageAlt
+            name
+            occupazione
+            telefono
+          }
+        }
       }
       body
     }
