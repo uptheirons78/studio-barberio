@@ -29,7 +29,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-md-3 px-5 footer-widget">
-            <h5 className="text-muted mt-1">Esplora</h5>
+            <h5 className="mt-1 footer-title">Esplora</h5>
             <nav className="nav flex-column pt-2">
               {footerPages.map((page, idx) => (
                 <Link
@@ -43,7 +43,7 @@ const Footer = () => {
             </nav>
           </div>
           <div className="col-md-3 px-5 footer-widget">
-            <h5 className="text-muted mt-1">Seguici</h5>
+            <h5 className="mt-1 footer-title">Seguici</h5>
             <ul className="social-container pt-2">
               <li className="social-link social-link__facebook">
                 <a href="https://www.facebook.com/studiobarberio.org/">
@@ -108,6 +108,10 @@ const StyledFooter = styled.footer`
     @media screen and (max-width: 765px) {
       margin-top: 2rem;
     }
+  }
+
+  .footer-title {
+    color: ${props => props.theme.white};
   }
 
   .social-container {

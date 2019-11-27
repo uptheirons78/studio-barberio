@@ -1,5 +1,8 @@
 import React from "react";
+import {Link} from "gatsby"
 import styled from "styled-components";
+
+// Components
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const Content = ({ data }) => {
@@ -9,9 +12,9 @@ const Content = ({ data }) => {
       <h2 className="heading-2">{data.mdx.frontmatter.heading}</h2>
       <hr />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      <a className="btn btn-primary btn-lg" href="/">
-        Call to Action &raquo;
-      </a>
+      <Link className="btn btn-primary btn-lg" to="/contatti">
+        Contattaci &raquo;
+      </Link>
     </HomeContent>
   );
 };

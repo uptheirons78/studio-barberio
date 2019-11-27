@@ -53,8 +53,9 @@ const Aside = () => {
         <h5>Contatti</h5>
         <p>Via del Casale Strozzi, 31 00195 Roma</p>
         <p>Tel: 06.483694</p>
-        <p>Fax: 06.48977102</p>
-        <p>Email: info@studiobarberio.org</p>
+        <p>Tel: 06.48977102</p>
+        <p>Fax: 06.45765396</p>
+        <p>Email: avvocatolaura@studiobarberio.org</p>
       </Widget>
     </div>
   );
