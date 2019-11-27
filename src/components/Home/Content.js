@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const Content = ({ data }) => {
-  console.log(data.mdx);
   return (
     <HomeContent className="col-md-8 mb-5">
       <h2 className="heading-2">{data.mdx.frontmatter.heading}</h2>
