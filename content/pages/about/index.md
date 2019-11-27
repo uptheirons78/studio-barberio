@@ -2,6 +2,27 @@
 templateKey: about-page
 title: Chi Siamo
 heading: Chi Siamo
+members:
+  collaboratori:
+    - descrizione: >-
+        Esperta in diritto dell’immigrazione, protezione internazionale e
+        diritto di asilo. Si occupa di diritto internazionale, diritto penale,
+        diritto minorile e di famiglia.
+      descrizione-lunga: "Avvocato [Cassazionista](https://www.ordineavvocatiroma.it/wp-content/themes/oar/SchedaIscritto.php?id=1393&elenco=1), Laura Barberio è membro del **Centro di Ricerche Economiche e Giuridiche** presso l’Università Tor Vergata di Roma e **docente** presso lo stesso Ateneo nell’ambito del **MEDIM – Master di II Livello in Economia, Diritto ed Intercultura delle Migrazioni**.\r\n\n\rDal 2009 è **docente** presso il **Master di II livello in “Etnopsichiatria”** attivato dall’Istituto A. T. Beck di Roma nelle materie che riguardano il diritto dell’immigrazione. \r\n\nAttualmente è membro di due Commissioni del Consiglio dell’Ordine degli Avvocati di Roma.\r\n\nRelatrice in numerosi convegni organizzati dalla **Scuola Superiore della Magistratura** e dal **Consiglio dell’Ordine degli Avvocati di Roma** da anni si dedica alla difesa degli stranieri in Italia, con particolare riferimento alla tutela dei diritti umani dei richiedenti la protezione internazionale e delle vittime di tortura.\r\n\nÈ autrice del volume [IL DIRITTO DEGLI STRANIERI](http://www.dikegiuridica.it/prodotto.php?id=995), Manuale operativo con normativa, giurisprudenza, prassi, tabelle riassuntive, schede pratiche e formulari, [DIKE](http://www.dikegiuridica.it/prodotto.php?id=995) 2018."
+      email: avvocatolaura@studiobarberio.org
+      image: /assets/laura.jpg
+      imageAlt: avvocato laura barberio
+      name: Laura Barberio
+      occupazione: Avvocato
+      telefono: 366 1909090
+    - descrizione: Si occupa dell’organizzazione e dell’amministrazione dello studio.
+      descrizione-lunga: "Laureata in Scienze della Pubblica Amministrazione presso l’Università della Tuscia di Viterbo, è la responsabile dell’Ufficio di Segreteria dello Studio Legale Barberio.\r\n\n\rGrazie alla sua formazione e alla maturata esperienza, anche in ambiti lavorativi pregressi, si occupa dell’organizzazione e del coordinamento delle diverse attività dello Studio, dagli adempimenti giudiziari alle sessioni in studio, e gestisce i rapporti esterni con Istituzioni, Enti ed Associazioni, consulenti e collaboratori."
+      email: info@studiobarberio.org
+      image: /assets/sara-cardigliano.jpg
+      imageAlt: sara cardigliano studio legale barberio
+      name: Sara Cardigliano
+      occupazione: Responsabile Segreteria
+      telefono: 338 2037427
 ---
 L’attività dello Studio Legale Barberio si incentra nella tutela dei diritti umani, contro ogni tipo di discriminazione, dalla difesa del diritto alla salute e dei minori alla irragionevole durata dei processi.
 
