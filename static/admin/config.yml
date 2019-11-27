@@ -51,9 +51,9 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Heading, name: heading, widget: string}
           - { name: "body", label: "Body", widget: "markdown" }
-      - file: "src/pages/chi-siamo/index.md"
+      - file: "src/pages/chi-siamo.md"
         label: "Chi Siamo"
-        name: "about"
+        name: "chi-siamo"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Titolo", name: "title", widget: "string"}
