@@ -32,6 +32,7 @@ const Header = () => {
                 activeStyle={{
                   color: "#FAA916",
                 }}
+                style={{ color: "rgba(255,255,255,0.8)" }}
               >
                 {page.name}
               </Link>

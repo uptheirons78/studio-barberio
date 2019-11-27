@@ -15,6 +15,18 @@ const Aside = () => {
       <Widget className="sidebar-widget mb-5">
         <h5>Il Diritto degli Stranieri</h5>
         <LibroImage />
+        <p className="mt-3">
+          L'Avv. Laura Barberio è autrice del manuale{" "}
+          <strong>"Il Diritto degli Stranieri"</strong> edito dalla{" "}
+          <a href="https://www.dikegiuridica.it/prodotto.php?id=995">
+            Dike Giuridica
+          </a>{" "}
+          che affronta in modo esaustivo gli istituti posti a base del diritto
+          dell’immigrazione connessi all'ingresso, al soggiorno,
+          all'allontanamento degli stranieri e alla loro tutela in sede civile,
+          penale ed amministrativa. È corredato da tabelle e schede pratiche con
+          relativi formulari di ricorsi.
+        </p>
       </Widget>
       <Widget className="sidebar-widget mb-5">
         <h5>Laura Barberio</h5>
@@ -25,8 +37,6 @@ const Aside = () => {
           <strong>Corso di aggiornamento per avvocati immigrazionisti </strong>
           promosso dall’Ordine degli Avvocati di Roma. Il corso si svolge ogni
           lunedì presso la Corte di Cassazione dalle ore 15.30 alle ore 18.30.
-          Per ulteriori approfondimenti è possibile consultare il{" "}
-          <strong>PROGRAMMA </strong> del convegno.
         </p>
       </Widget>
       <Widget className="sidebar-widget mb-5">
@@ -76,8 +86,10 @@ const Widget = styled.div`
     margin-bottom: 0;
   }
 
-  strong {
+  strong,
+  a {
     color: ${props => props.theme.primaryColor};
+    font-weight: 700;
   }
 
   .social-container {

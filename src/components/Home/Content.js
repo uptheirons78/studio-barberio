@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "gatsby"
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 // Components
@@ -13,7 +13,7 @@ const Content = ({ data }) => {
       <hr />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
       <Link className="btn btn-primary btn-lg" to="/contatti">
-        Contattaci &raquo;
+        Richiedi un appuntamento &raquo;
       </Link>
     </HomeContent>
   );
