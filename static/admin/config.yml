@@ -51,11 +51,11 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Heading, name: heading, widget: string}
           - { name: "body", label: "Body", widget: "markdown" }
-      - file: "content/pages/sentenze/index.md"
+      - file: "content/pages/decisioni/index.md"
         label: "Sentenze Page"
-        name: "sentenze"
+        name: "decisioni"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sentenze-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "decisioni-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
           - {label: "Sub Heading", name: "sub_heading", widget: "string"}
