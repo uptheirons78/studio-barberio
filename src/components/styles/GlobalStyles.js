@@ -20,6 +20,13 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.black}
   }
 
+  .leggi-tutto {
+    transition: all .500s ease;
+    &:hover {
+      letter-spacing: 2px !important;
+    }
+  }
+
 `;
 
 export default GlobalStyle;

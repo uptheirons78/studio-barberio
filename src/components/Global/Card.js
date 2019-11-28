@@ -33,7 +33,7 @@ const Card = ({ post }) => {
         >
           <Link
             to={`/sentenze/${post.fields.slug}`}
-            className="btn"
+            className="btn leggi-tutto"
             style={{
               backgroundColor: "#701212",
               color: "#fff",
@@ -41,7 +41,7 @@ const Card = ({ post }) => {
               letterSpacing: "1px",
             }}
           >
-            Leggi tutto &raquo;
+            Leggi tutto <span>&raquo;</span>
           </Link>
         </div>
       </div>

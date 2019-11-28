@@ -11,7 +11,7 @@ const Content = ({ data }) => {
       <h4 className="heading-2">{data.mdx.frontmatter.heading}</h4>
       <hr />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      <Link className="btn btn-primary btn-lg" to="/contatti">
+      <Link className="btn btn-primary btn-lg leggi-tutto" to="/contatti">
         Richiedi un appuntamento &raquo;
       </Link>
     </HomeContent>

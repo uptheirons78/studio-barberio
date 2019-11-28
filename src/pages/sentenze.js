@@ -8,16 +8,18 @@ import Background from "../components/Sentenze/Background";
 import Hero from "../components/Global/Hero";
 import Card from "../components/Global/Card";
 
+// Utils
+import { findTitleLeft, findTitleRight } from "../utils/title";
+
 const Sentenze = ({ data }) => {
   const sentenze = data.allMdx.edges;
-  const descrizione =
-    "Da anni siamo impegnati con successo nel diritto dell'immigrazione, diritto di asilo e della protezione internazionale. Riportiamo alcune importanti decisioni relative a casi da noi personalmente seguiti.";
+  const page = data.mdx.frontmatter;
 
   return (
     <Layout>
       <SEO
-        title="Sentenze e decisioni"
-        description={descrizione}
+        title={page.seo.browserTitle}
+        description={page.seo.description}
         keywords={[
           `laura barberio`,
           `studio legale barberio`,
@@ -30,28 +32,20 @@ const Sentenze = ({ data }) => {
       />
       <Background>
         <Hero
-          titleLeft="Sentenze"
-          titleRight="Rilevanti"
-          descrizione={descrizione}
+          titleLeft={findTitleLeft(page.heading)}
+          titleRight={findTitleRight(page.heading)}
+          descrizione={page.sub_heading}
         />
       </Background>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <p className="text-justify">
-              Di seguito un elenco di provvedimenti con i quali sono stati
-              decisi alcuni significativi e delicati casi di Protezione
-              Internazionale, concessione dello Status di Rifugiato e della
-              Protezione Internazionale in generale. Trattasi di casi seguiti in
-              questi ultimi anni dall’ Avvocato Laura Barberio, esperto in
-              diritto dell’immigrazione, o da alcuni collaboratori dello Studio
-              Legale Barberio.
-            </p>
+            <p className="text-justify">{page.descrizione}</p>
           </div>
         </div>
         <div className="row mt-5">
           <div className="col md 12">
-            <h4 className="heading-2">Decisioni recenti</h4>
+            <h4 className="heading-2">Decisioni importanti</h4>
             <hr className="mb-4" />
           </div>
         </div>
@@ -72,6 +66,19 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    mdx(frontmatter: { templateKey: { eq: "decisioni-page" } }) {
+      frontmatter {
+        title
+        heading
+        sub_heading
+        descrizione
+        seo {
+          title
+          browserTitle
+          description
+        }
       }
     }
     allMdx(

@@ -1,5 +1,5 @@
 ---
-templateKey: sentenze-page
+templateKey: decisioni-page
 title: Sentenze
 heading: Sentenze Rilevanti
 sub_heading: >-
@@ -19,7 +19,7 @@ seo:
     Nel corso degli anni lo Studio Legale Barberio, che si occupa di diritto
     dell' immigrazione, protezione internazionale ed asilo politico, ha ottenuto
     importanti e rilevanti provvedimenti in casi relativi alle suddette
-    materie. 
+    materie.
   title: Sentenze
 ---
 
