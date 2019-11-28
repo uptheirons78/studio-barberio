@@ -11,6 +11,8 @@ import AboutPageAside from "../components/About/Aside";
 
 const ChiSiamoPage = ({ data }) => {
   const { collaboratori } = data.mdx.frontmatter.members;
+  const { body: lauraBody } = data.laura;
+  const { body: saraBody } = data.sara;
 
   const descrizione =
     "Esperti e specializzati nel diritto dell'immigrazione, diritto di asilo, protezione internazionale e nel diritto di famiglia.";
@@ -36,7 +38,11 @@ const ChiSiamoPage = ({ data }) => {
       <div className="container">
         <div className="row">
           <Content data={data} />
-          <AboutPageAside collaboratori={collaboratori} />
+          <AboutPageAside
+            laura={lauraBody}
+            sara={saraBody}
+            collaboratori={collaboratori}
+          />
         </div>
       </div>
     </Layout>
@@ -63,6 +69,12 @@ export const pageQuery = graphql`
           }
         }
       }
+      body
+    }
+    laura: mdx(frontmatter: { templateKey: { eq: "laura-page" } }) {
+      body
+    }
+    sara: mdx(frontmatter: { templateKey: { eq: "sara-page" } }) {
       body
     }
   }

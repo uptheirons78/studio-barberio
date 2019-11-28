@@ -7,7 +7,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 const Content = ({ data }) => {
   return (
     <AboutContent className="col-md-8 mb-5">
-      <h2 className="heading-2">Le Nostre Attività</h2>
+      <h4 className="heading-2">Le Nostre Attività</h4>
       <hr />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </AboutContent>

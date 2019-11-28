@@ -1,24 +1,54 @@
 import React from "react";
 import styled from "styled-components";
+import { FaPhone, FaEnvelope } from "react-icons/fa";
 
-const AboutPageAside = ({ collaboratori }) => {
+// Components
+import { MDXRenderer } from "gatsby-plugin-mdx";
+
+const AboutPageAside = ({ collaboratori, laura, sara }) => {
   return (
-    <div className="col-md-4 mb-5 pl-5">
-      <h2 className="heading-2">Team Members</h2>
+    <div className="col-md-4 px-3 pl-2">
+      <h4 className="heading-2">Team Members</h4>
       <hr />
       {collaboratori.map(collaboratore => {
         return (
-          <Widget key={collaboratore.name} className="sidebar-widget mb-5">
+          <Widget
+            key={collaboratore.name}
+            className="row sidebar-widget px-3 mb-5"
+          >
             <div className="card">
-              <div className="card-body d-flex flex-column align-items-center">
+              <div className="card-body">
                 <img
                   src={collaboratore.image}
                   alt={collaboratore.imageAlt}
-                  className="img-fluid rounded-circle w-50 mb-3"
+                  className="img-fluid rounded mx-auto d-block"
+                  style={{ maxWidth: "120px" }}
                 />
-                <h5>{collaboratore.name}</h5>
-                <h6 className="text-muted mb-3">{collaboratore.occupazione}</h6>
-                <p>{collaboratore.descrizione}</p>
+                <h5 className="text-center mt-2">{collaboratore.name}</h5>
+                <p className="text-muted text-center mb-2">
+                  {collaboratore.occupazione}
+                </p>
+
+                {collaboratore.name === "Laura Barberio" ? (
+                  <MDXRenderer>{laura}</MDXRenderer>
+                ) : (
+                  <MDXRenderer>{sara}</MDXRenderer>
+                )}
+                <hr />
+                <div className="info-section">
+                  <p className="info-item">
+                    <span className="mr-1">
+                      <FaPhone />
+                    </span>{" "}
+                    {collaboratore.telefono}
+                  </p>
+                  <p className="info-item">
+                    <span className="mr-1">
+                      <FaEnvelope />
+                    </span>{" "}
+                    {collaboratore.email}
+                  </p>
+                </div>
               </div>
             </div>
           </Widget>
@@ -38,7 +68,7 @@ const Widget = styled.div`
   }
 
   p {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.lighBlack};
     font-size: 0.9rem;
     margin-bottom: 0;
   }
@@ -47,36 +77,5 @@ const Widget = styled.div`
   a {
     color: ${props => props.theme.primaryColor};
     font-weight: 700;
-  }
-
-  .social-container {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-
-    .social-link {
-      margin-right: 0.5rem;
-      svg {
-        fill: #ffffff;
-        width: 3rem;
-        height: 3rem;
-        padding: 1rem;
-      }
-    }
-    .social-link__facebook {
-      svg {
-        background: #3a579a;
-      }
-    }
-    .social-link__linkedin {
-      svg {
-        background: #127bb6;
-      }
-    }
-    .social-link__twitter {
-      svg {
-        background: #4ab3f4;
-      }
-    }
   }
 `;

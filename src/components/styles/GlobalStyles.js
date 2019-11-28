@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 1px;
   }
   p {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.lightBlack};
     font-size: 1.1rem;
   }
 

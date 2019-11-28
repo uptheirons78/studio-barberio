@@ -81,7 +81,7 @@ const Widget = styled.div`
   }
 
   p {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.lightBlack};
     font-size: 0.9rem;
     margin-bottom: 0;
   }
