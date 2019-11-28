@@ -10,7 +10,7 @@ import LauraImage from "./LauraImage";
 const Aside = () => {
   return (
     <div className="col-md-4 mb-5 pl-5">
-      <h2 className="heading-2">News</h2>
+      <h4 className="heading-2">News</h4>
       <hr />
       <Widget className="sidebar-widget mb-5">
         <h5>Il Diritto degli Stranieri</h5>

@@ -8,7 +8,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 const Content = ({ data }) => {
   return (
     <HomeContent className="col-md-8 mb-5">
-      <h2 className="heading-2">{data.mdx.frontmatter.heading}</h2>
+      <h4 className="heading-2">{data.mdx.frontmatter.heading}</h4>
       <hr />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
       <Link className="btn btn-primary btn-lg" to="/contatti">

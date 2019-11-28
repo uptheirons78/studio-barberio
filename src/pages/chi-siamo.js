@@ -15,7 +15,7 @@ const ChiSiamoPage = ({ data }) => {
   const { body: saraBody } = data.sara;
 
   const descrizione =
-    "Esperti e specializzati nel diritto dell'immigrazione, diritto di asilo, protezione internazionale e nel diritto di famiglia.";
+    "Studio Legale Barberio: Esperti e specializzati nel diritto dell'immigrazione, diritto di asilo, protezione internazionale e nel diritto di famiglia.";
 
   return (
     <Layout>

@@ -13,7 +13,7 @@ const Hero = ({ titleLeft, titleRight, descrizione }) => {
               <p
                 className="mb-5 pr-5"
                 style={{
-                  maxWidth: "650px",
+                  maxWidth: "750px",
                   width: "100%",
                 }}
               >
@@ -61,7 +61,7 @@ const HeroHeader = styled.header`
 
   p {
     color: ${props => props.theme.white};
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 
     @media screen and (max-width: 600px) {
       font-size: 1.2rem;

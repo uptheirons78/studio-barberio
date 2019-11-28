@@ -1,47 +1,66 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
+// Components
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/seo";
-import PageDescription from "../components/PageDescription";
-import SentenzaCard from "../components/SentenzaCard";
-import PageContainer from "../components/PageContainer";
-import ArticleContainer from "../components/ArticleContainer";
+import Background from "../components/Sentenze/Background";
+import Hero from "../components/Global/Hero";
+import Card from "../components/Global/Card";
 
 const Sentenze = ({ data }) => {
   const sentenze = data.allMdx.edges;
+  const descrizione =
+    "Da anni siamo impegnati con successo nel diritto dell'immigrazione, diritto di asilo e della protezione internazionale. Riportiamo alcune importanti decisioni relative a casi da noi personalmente seguiti.";
 
   return (
     <Layout>
-      <SEO title="Decisioni rilevanti Studio Legale Barberio" />
-      <PageContainer>
-        <PageDescription>
-          <p>
-            Di seguito un elenco di provvedimenti con i quali sono stati decisi
-            alcuni significativi e delicati casi di Protezione Internazionale,
-            concessione dello Status di Rifugiato e della Protezione
-            Internazionale in generale.
-          </p>
-          <p>
-            Trattasi di casi seguiti in questi ultimi anni dall’ Avvocato Laura
-            Barberio, esperto in diritto dell’immigrazione, o da alcuni
-            collaboratori dello Studio Legale Barberio.
-          </p>
-        </PageDescription>
-        <ArticleContainer>
-          {sentenze.map(({ node }) => {
-            return <SentenzaCard node={node} key={node.fields.slug} />;
-          })}
-        </ArticleContainer>
-        <ul style={{ marginTop: "5rem" }}>
-          <Link style={{ marginRight: "2rem" }} to="/">
-            Home
-          </Link>
-          <Link style={{ marginRight: "2rem" }} to="/sentenze/">
-            Sentenze
-          </Link>
-        </ul>
-      </PageContainer>
+      <SEO
+        title="Sentenze e decisioni"
+        description={descrizione}
+        keywords={[
+          `laura barberio`,
+          `studio legale barberio`,
+          `diritto immigrazione`,
+          `asilo politico`,
+          `protezione internazionale`,
+          `gratuito patrocinio`,
+          `diritto degli stranieri`,
+        ]}
+      />
+      <Background>
+        <Hero
+          titleLeft="Sentenze"
+          titleRight="Rilevanti"
+          descrizione={descrizione}
+        />
+      </Background>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <p className="text-justify">
+              Di seguito un elenco di provvedimenti con i quali sono stati
+              decisi alcuni significativi e delicati casi di Protezione
+              Internazionale, concessione dello Status di Rifugiato e della
+              Protezione Internazionale in generale. Trattasi di casi seguiti in
+              questi ultimi anni dall’ Avvocato Laura Barberio, esperto in
+              diritto dell’immigrazione, o da alcuni collaboratori dello Studio
+              Legale Barberio.
+            </p>
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col md 12">
+            <h4 className="heading-2">Decisioni recenti</h4>
+            <hr className="mb-4" />
+          </div>
+        </div>
+        <div className="row">
+          {sentenze.map(post => (
+            <Card key={"sent_card" + post.node.id} post={post.node} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 };
@@ -61,6 +80,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          id
           excerpt
           fields {
             slug

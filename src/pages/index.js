@@ -16,7 +16,19 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" description={descrizione} keywords={[`laura barberio`, `studio legale barberio`, `diritto immigrazione`, `asilo politico`, `protezione internazionale`, `gratuito patrocinio`, `diritto degli stranieri`]} />
+      <SEO
+        title="Home"
+        description={descrizione}
+        keywords={[
+          `laura barberio`,
+          `studio legale barberio`,
+          `diritto immigrazione`,
+          `asilo politico`,
+          `protezione internazionale`,
+          `gratuito patrocinio`,
+          `diritto degli stranieri`,
+        ]}
+      />
       <Background>
         <Hero
           titleLeft="Studio Legale"
@@ -29,8 +41,8 @@ const IndexPage = ({ data }) => {
           <Content data={data} />
           <Aside />
         </div>
-        <h2 className="heading-2">Decisioni recenti</h2>
-          <hr className="mb-4"/>
+        <h4 className="heading-2">Decisioni recenti</h4>
+        <hr className="mb-4" />
         <div className="row my-3">
           {data.allMdx.edges.map(post => (
             <Card key={post.node.id} post={post.node} />
